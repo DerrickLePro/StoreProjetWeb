@@ -1,2 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.spacer{
+  margin-top: 20px;
+}
+.clickable{
+  cursor: pointer;
+}
+
+.body{
+  background-color: azure;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
