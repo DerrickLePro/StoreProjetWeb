@@ -3,14 +3,25 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {RouterModule, Routes} from '@angular/router';
+import { CategorieComponent } from './categorie/categorie.component';
+import {HttpModule} from '@angular/http';
+import {FormsModule} from '@angular/forms';
+import  "rxjs/add/operator/map";
 
+const appRoutes:Routes = [
+  {path:'categorie', component:CategorieComponent},
+  {path:'home', component:AppComponent},
+  {path:'', redirectTo:'/home',pathMatch:'full'}
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategorieComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, RouterModule.forRoot(appRoutes), HttpModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
