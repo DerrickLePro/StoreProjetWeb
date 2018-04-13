@@ -10,9 +10,8 @@ import {FormsModule} from '@angular/forms';
 import  "rxjs/add/operator/map";
 
 const appRoutes:Routes = [
-  {path:'categorie', component:CategorieComponent},
-  {path:'home', component:AppComponent},
-  {path:'', redirectTo:'/home',pathMatch:'full'}
+  {path:'category', component:CategorieComponent},
+  {path:'', redirectTo:'#',pathMatch:'full'}
 ]
 
 @NgModule({

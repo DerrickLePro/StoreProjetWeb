@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.css';
 
 .spacer{
   margin-top: 20px;
@@ -15,4 +16,203 @@
 .col-centered{
   float: none;
   margin: 0 auto;
+}
+
+body{
+ /* background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');*/
+  padding:50px;
+}
+
+#login-dp{
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow:hidden;
+  background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+  font-size:12px
+}
+#login-dp .bottom{
+  background-color:rgba(255,255,255,.8);
+  border-top:1px solid #ddd;
+  clear:both;
+  padding:14px;
+}
+#login-dp .social-buttons{
+  margin:12px 0
+}
+#login-dp .social-buttons a{
+  width: 49%;
+}
+#login-dp .form-group {
+  margin-bottom: 10px;
+}
+.btn-fb{
+  color: #fff;
+  background-color:#3b5998;
+}
+.btn-fb:hover{
+  color: #fff;
+  background-color:#496ebc
+}
+.btn-tw{
+  color: #fff;
+  background-color:#55acee;
+}
+.btn-tw:hover{
+  color: #fff;
+  background-color:#59b5fa;
+}
+@media(max-width:768px){
+  #login-dp{
+    background-color: inherit;
+    color: #fff;
+  }
+  #login-dp .bottom{
+    background-color: inherit;
+    border-top:0 none;
+  }
+
+  .marger{
+    align-content: right;
+    margin-right: 0px ;
+  }
+
+
+  /*      test  */
+
+
+  .form-body{
+    background:#fff;
+    padding:20px;
+  }
+  .login-form{
+    background:rgba(255,255,255,0.8);
+    padding:20px;
+    border-top:3px solid#3e4043;
+  }
+  .innter-form{
+    padding-top:20px;
+  }
+  .final-login li{
+    width:50%;
+  }
+
+  .nav-tabs {
+    border-bottom: none !important;
+  }
+
+  .nav-tabs>li{
+    color:#222 !important;
+  }
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #d14d42;
+    border: none !important;
+    border-bottom-color: transparent;
+    border-radius:none !important;
+  }
+  .nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.428571429;
+    border: none !important;
+    border-radius:none !important;
+    text-transform:uppercase;
+    font-size:16px;
+  }
+
+  .social-login{
+    text-align:center;
+    font-size:12px;
+  }
+  .social-login p{
+    margin:15px 0;
+  }
+  .social-login ul{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+  }
+  .social-login ul li{
+    width:33%;
+    float:left;
+    clear:fix;
+  }
+  .social-login ul li a{
+    font-size:13px;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 0;
+    display:block;
+  }
+  .social-login ul li:nth-child(1) a{
+    background:#3b5998;
+  }
+  .social-login ul li:nth-child(2) a{
+    background:#e74c3d;
+  }
+  .social-login ul li:nth-child(3) a{
+    background:#3698d9;
+  }
+  .sa-innate-form input[type=text], input[type=password], input[type=file], textarea, select, email{
+    font-size:13px;
+    padding:10px;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+
+  }
+  .sa-innate-form input[type=submit]{
+    border:1px solid#e64b3b;
+    background:#e64b3b;
+    color:#fff;
+    padding:10px 25px;
+    font-size:14px;
+    margin-top:5px;
+  }
+  .sa-innate-form input[type=submit]:hover{
+    border:1px solid#db3b2b;
+    background:#db3b2b;
+    color:#fff;
+  }
+
+  .sa-innate-form button{
+    border:1px solid#e64b3b;
+    background:#e64b3b;
+    color:#fff;
+    padding:10px 25px;
+    font-size:14px;
+    margin-top:5px;
+  }
+  .sa-innate-form button:hover{
+    border:1px solid#db3b2b;
+    background:#db3b2b;
+    color:#fff;
+  }
+  .sa-innate-form p{
+    font-size:13px;
+    padding-top:10px;
+  }
+
+  /*  end*/
+
+
+  /*footer*/
+
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background: #000000;
+    color: #FFFFFF;
+    margin:-100px auto 0;         /* margin négatif */
+    border:1px solid green;
+  }
 }
