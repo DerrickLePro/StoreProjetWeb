@@ -8,6 +8,7 @@ import { CategorieComponent } from './categorie/categorie.component';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import  "rxjs/add/operator/map";
+import {CategorieService} from "../services/admin/categorie.service";
 
 const appRoutes:Routes = [
   {path:'category', component:CategorieComponent},
@@ -22,7 +23,7 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), HttpModule, FormsModule
   ],
-  providers: [],
+  providers: [CategorieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

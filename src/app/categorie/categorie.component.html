@@ -1,26 +1,54 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <nav class="nav">
-        <ul class="nav-justified">
-          <li class="nav-item">Categories</li>
-          <li class="nav-item">Ajouter une categorie</li>
-          <li class="nav-item">Autres</li>
+        <ul class="nav justify-content-center">
+          <li class="nav-item"><a class="nav-link" routerLink="/category">Category</a> </li>
+          <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#modalAddCategory" routerLink="#">Add Category</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="#">Orders</a></li>
         </ul>
-      </nav>
+  </div>
+
+  <!-- Modal add Category -->
+  <div class="modal fade" id="modalAddCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new category</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm" (ngSubmit)="onSaveCategory(f.value)">
+            <div class="form-group">
+              <label class="custom-control-label"><strong>Category Name:</strong></label>
+              <input class="form-control" type="text" ngModel name="nomCategorie" required placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+              <label class="custom-control-label"><strong>Description:</strong></label>
+              <input class="form-control" type="text" ngModel name="description" required placeholder="Enter description">
+            </div>
+            <div class="form-group">
+              <label for="image">Image</label>
+              <input type="file" class="form-control-file" (change)="selectFile($event)" id="image">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button [disabled]="!f.valid"  type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <section class="">
+      <section class="" *ngFor="let c of allCategory">
         <article class="card">
-          Article 1
-        </article>
-        <article class="card">
-          Article 1
-        </article>
-        <article class="card">
-          Article 1
+          <div class="card-body">
+            {{c.nomCategorie}}
+          </div>
+          <img src="{{getImage(c.idCategorie)}}" class="card-img">
         </article>
       </section>
     </div>
