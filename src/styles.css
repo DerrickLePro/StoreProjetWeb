@@ -8,9 +8,12 @@
 .clickable{
   cursor: pointer;
 }
-
+.imageCard{
+  height: 80px;
+  width: 80px;
+}
 .body{
-  background-color: azure;
+  /*background-color: azure;*/
 }
 
 .col-centered{
@@ -214,5 +217,21 @@ body{
     color: #FFFFFF;
     margin:-100px auto 0;         /* margin négatif */
     border:1px solid green;
+  }
+
+
+  /**
+     Zoom Image
+   */
+
+  .zoom{
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+  .zoom:hover img{
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
   }
 }

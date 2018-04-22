@@ -1,13 +1,18 @@
 import {Http, RequestOptions, URLSearchParams} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {Categorie} from '../../model/Categorie';
+import {Image} from "../../model/Image";
 
 @Injectable()
 export class CategorieService {
   constructor(public  http: Http) {
   }
 
-  saveCategorie(categorie: Categorie, photo: File) {
+  saveCategorie(categorie: Categorie, photo: Image) {
+   /* var reader = new FileReader();
+    reader.onload =this._handleReaderLoaded.bind(this);
+    reader.readAsBinaryString(photo);
+
     let formdata: FormData = new FormData();
     formdata.append('file', photo);
     formdata.append('name', categorie.nomCategorie)
@@ -18,8 +23,9 @@ export class CategorieService {
     const option = new RequestOptions({
       body: categorie,
       params: formdata
-    });
-    return this.http.post("http://localhost:8080/admin/category/add",formdata);
+    });*/
+     categorie.photo = photo;
+    return this.http.post("http://localhost:8080/admin/category/add", categorie);
   }
 
   getAllCategory(){

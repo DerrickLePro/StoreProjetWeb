@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CategorieService} from "../../services/admin/categorie.service";
+import {Image} from "../../model/Image";
 
 @Component({
   selector: 'app-categorie',
@@ -9,60 +10,53 @@ import {CategorieService} from "../../services/admin/categorie.service";
 export class CategorieComponent implements OnInit {
 
   constructor(public categoryService:CategorieService) { }
-  selectedFiles: FileList
-  currentFileUpload: File
-  allCategory:any;
+  allCategory:any =null;
+  image:Image = new Image();
   ngOnInit() {
-    this.categoryService.getAllCategory()
-      .subscribe(data=>{
-        this.allCategory = data;
-      }, error2 => {
-     console.log(error2);
-      });
+    if(this.allCategory == null){
+      this.categoryService.getAllCategory()
+        .subscribe(data=>{
+          this.allCategory = data;
+        }, error2 => {
+          console.log("not null");
+        });
+    }
+
 
   }
 
-  selectFile(event) {
-    const file = event.target.files.item(0)
 
-    if (file.type.match('image.*')) {
-      this.selectedFiles = event.target.files;
-    } else {
+  handleFileSelect(evt){
+    const fil = evt.target.files.item(0);
+    if (fil.type.match('image.*')){
+      var files = evt.target.files;
+      var file = files[0];
+      this.image.nomPhoto = file.name;
+      if (files && file) {
+        var reader = new FileReader();
+
+        reader.onload =this._handleReaderLoaded.bind(this);
+
+        reader.readAsBinaryString(file);
+      }
+    }else {
       alert('invalid format!');
     }
+
   }
 
-  imageToShow: any;
-
-  dataURItoBlob(b64Data) {
-    var binary = atob(b64Data);
-    var array = new  Array(binary.length);
-    for (var i = 0; i < binary.length; i++) {
-      array[i] = binary.charCodeAt(i);
-    }
-    var bytearray = new  Uint8Array(array);
-    var blob = new Blob([bytearray], {type: 'image/jpg'
-    });
-
-    return blob;
+  _handleReaderLoaded(readerEvt) {
+    var binaryString = readerEvt.target.result;
+    this.image.imageToShow= btoa(binaryString);
+    console.log(btoa(binaryString));
   }
 
-  createImageFromBlob(image: Blob) {
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
-      this.imageToShow = reader.result;
-    }, false);
-
-    if (image) {
-      reader.readAsDataURL(image);
-    }
-  }
 
   onSaveCategory(datForm){
-    this.currentFileUpload = this.selectedFiles.item(0);
+    console.log(this.image);
+
     console.log("ok Categoory !!")
-    console.log(this.currentFileUpload);
-    this.categoryService.saveCategorie(datForm, this.currentFileUpload)
+    this.categoryService.saveCategorie(datForm, this.image)
       .subscribe(data=>{
         console.log("Insert OK")
       }, error2 => {
@@ -72,6 +66,7 @@ export class CategorieComponent implements OnInit {
 
   getImage(id:number){
     console.log(this.categoryService.getPhotoCat(id));
+    /* return this.dataURItoBlob(this.categoryService.getPhotoCat(id));*/
     return this.categoryService.getPhotoCat(id);
   }
 
