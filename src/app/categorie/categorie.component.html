@@ -32,8 +32,8 @@
               <input type="file" class="form-control-file" (change)="handleFileSelect($event)" id="image">
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button [disabled]="!f.valid"  type="submit" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+              <button [disabled]="!f.valid"  type="submit" data-="modal" class="btn btn-primary">Save changes</button>
             </div>
           </form>
         </div>
@@ -48,7 +48,7 @@
         <div class="card" style="width: 15rem;">
 
           <div class="zoom">
-          <img class="card-img img-fluid clickable" src="data:image/jpeg,{{c.image.imageToShow}}" alt="Card image cap">
+          <img class="card-img img-fluid clickable imageCard" src="data:image/jpeg;base64,{{c.photo.imageToShow}}" alt="Card image cap">
           </div>
 
           <div class="card-body">
